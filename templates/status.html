@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block pageheader %}
+    <h1 class="m-0">Today Status</h1>
+{% endblock %}
+
+{% block body %}
+{#    <div class="col-md-7">#}
+        <div class="box box-default">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="callout callout-info">
+                    <h4 style="text-align: center;">{{ style.date }}</h4>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <div class="box col-md-8">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered" style="text-align: center">
+                    <tbody>
+                    <tr>
+                        <th>Username</th>
+                        <th>Come</th>
+                        <th>Leave</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.username }}</td>
+                        <td>{{ item.come }}</td>
+                        <td>{{ item.leave }}</td>
+                        <td>
+                            <div >
+                                {% if item.id == '#' %}
+                                    <a href="/delete/{{ item.id }}">
+                                        <button type="button" disabled="disabled" class="btn btn-block btn-danger btn-xs" >
+                                            Delete
+                                        </button>
+                                    </a>
+                                {% else %}
+                                    <a href="/delete/{{ item.id }}">
+                                        <button type="button" class="btn btn-block btn-danger btn-xs" >
+                                            Delete
+                                        </button>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+{#    </div>#}
+{% endblock %}

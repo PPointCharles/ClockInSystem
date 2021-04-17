@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block pageheader %}
+    <h1 class="m-0">Summary</h1>
+{% endblock %}
+
+{% block quickpath %}
+    <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/post">Pay up</a></li>
+            </ol>
+          </div><!-- /.col -->
+{% endblock %}
+
+{% block body %}
+
+    <!-- Small boxes (Stat box) -->
+        <div class="row">
+          {% for item in items %}
+              <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  {% if item.status %}
+                  <div class="small-box {{ item.color }}">
+                  {% else %}
+                  <div class="small-box" style="background-color: #d2d6de">
+                  {% endif %}
+                      <div class="inner">
+                          <h3 >{{ item.username }}</h3>
+                          <h6 >累计时长：{{ item.duration }} h</h6>
+                          <p style="margin-bottom: auto">TOA: {{ item.attend }}<br>
+                             TOL: {{ item.tol }}<br>
+                             TOE: {{ item.toe }}
+                          </p>
+                      </div>
+                      <div class="icon">
+                          <i class="ion {{ item.img }}"></i>
+                      </div>
+                      <a href="javascript:if(confirm('Are you {{ item.username }}?')) location='/submit/{{ item.user_id }}'" class="small-box-footer" >Clock In <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+              </div>
+              <!-- ./col -->
+
+          {% endfor %}
+        </div>
+        <!-- /.row -->
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block pageheader %}
+    <h1 class="m-0"> <i class="fa fa-warning text-red"></i>Success</h1>
+{% endblock %}
+{% block body %}
+    <script>
+        let t = 10;
+        function openwin() {
+            t -= 1;
+            if (t == 0) {
+                location.href = '/';
+            }
+            setTimeout("openwin()", 300);
+        }
+        openwin();
+    </script>
+    <section class="content">
+
+      <div class="error-page">
+        <h2 class="headline text-green">Bingo~</h2>
+
+        <div class="error-content">
+          <h3>Your have clock in successfully.
+            <p>
+              Enjoy life, 骚年<br>
+            </p>
+              <strong>
+                  The page will automatically redirect after 3 seconds, or you could click <a href="/">here</a>.
+              </strong>
+          </h3>
+
+        </div>
+      </div>
+      <!-- /.error-page -->
+    </section>
+{% endblock %}

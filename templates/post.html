@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block pageheader %}
+    <h1 class="m-0">Pay up</h1>
+{% endblock %}
+
+{% block quickpath %}
+
+    <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+            </ol>
+          </div><!-- /.col -->
+{% endblock %}
+
+{% block body %}
+    <div class="col-md-6" style="">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">A Little Forgetful Boy</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form action="/post" method="POST">
+                <div class="card-body">
+                    <div class="row">
+                        <label id="postMonth" style="font-size: 25px;"></label>
+                    </div>
+                    <div class="row" style="text-align: center">
+                        <div class="col-sm-3">
+                            <!-- select -->
+                            <div class="form-group" >
+                                <label class="text-right" style="width: 80px;">username</label>
+                                <select name="username" class="custom-select" style="width: 100px;">
+                                    {% for each in usernames %}
+                                        <option value="{{ each.id }}">{{ each.username }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- select -->
+                            <div class="form-group" >
+                                <label class="text-right" style="width: 80px;">day</label>
+                                <select name="day" class="custom-select" style="width: 100px;">
+                                    {% for i in range(1,daysum + 1) %}
+                                    <option>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- select -->
+                            <div class="form-group">
+                                <label class="text-right" style="width: 80px;">hour</label>
+                                <select name="hour" class="custom-select" style="width: 100px;">
+                                    {% for i in range(24) %}
+                                    <option>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- select -->
+                            <div class="form-group">
+                                <label class="text-right" style="width: 80px;">minute</label>
+                                <select name="minute" class="custom-select" style="width: 100px;">
+                                    {% for i in range(60) %}
+                                        <option>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<script src="../static/dist/js/function.js"></script>
+
+{% endblock %}
