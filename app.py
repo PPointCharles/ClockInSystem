@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, flash, url_for, redirect
 import config
 from database import db
 import Controller as ctl
@@ -28,10 +28,11 @@ def submit(userid):
         if request.referrer is None:
             abort(403)
         clock_time = datetime.datetime.now()
-        # clock_time = datetime.datetime.fromisoformat('2021-04-14 19:40:31')
+        # clock_time = datetime.datetime.fromisoformat('2021-04-22 08:40:31')
         res = ctl.clockIn(int(userid), clock_time)
         if res:
-            return render_template("succ.html")
+            flash("you have clock in successfully!")
+            return redirect(url_for('index'))
         else:
             abort(400)
     else:
@@ -57,7 +58,8 @@ def handle():
         clock_time = datetime.datetime(year, month, day, hour, minute, 0)
         res = ctl.clockIn(int(userid), clock_time)
         if res:
-            return render_template("succ.html")
+            flash("you have pay up successfully!")
+            return redirect(url_for('index'))
         else:
             abort(400)
 
@@ -93,4 +95,5 @@ def Forbidden(error):
 
 
 if __name__ == '__main__':
+    app.secret_key = "How_Do_You_Do!!!"
     app.run()

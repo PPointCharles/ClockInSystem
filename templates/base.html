@@ -133,6 +133,15 @@
       <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <div class="alert alert-dismissible" role="alert" style="background-color: 	#E6E6FA">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Bingo~ ,</strong> {{ message }}
+                    </div>
+                {% endfor %}
+            {% endwith %}
+
             {% block body %}
 
             {% endblock %}
