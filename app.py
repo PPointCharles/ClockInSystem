@@ -31,7 +31,7 @@ def submit(userid):
         # clock_time = datetime.datetime.fromisoformat('2021-04-22 08:40:31')
         res = ctl.clockIn(int(userid), clock_time)
         if res:
-            flash("you have clock in successfully!")
+            flash("You have clock in successfully!")
             return redirect(url_for('index'))
         else:
             abort(400)
@@ -58,7 +58,7 @@ def handle():
         clock_time = datetime.datetime(year, month, day, hour, minute, 0)
         res = ctl.clockIn(int(userid), clock_time)
         if res:
-            flash("you have pay up successfully!")
+            flash("You have pay up successfully!")
             return redirect(url_for('index'))
         else:
             abort(400)
