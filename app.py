@@ -28,7 +28,7 @@ def submit(userid):
         if request.referrer is None:
             abort(403)
         clock_time = datetime.datetime.now()
-        # clock_time = datetime.datetime.fromisoformat('2021-04-22 08:40:31')
+        # clock_time = datetime.datetime.fromisoformat('2021-04-23 08:40:31')
         res = ctl.clockIn(int(userid), clock_time)
         if res:
             flash("You have clock in successfully!")
@@ -95,5 +95,4 @@ def Forbidden(error):
 
 
 if __name__ == '__main__':
-    app.secret_key = "How_Do_You_Do!!!"
     app.run()
