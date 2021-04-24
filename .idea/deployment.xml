@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="aesm1p@192.168.84.141:22" remoteFilesAllowedToDisappearOnAutoupload="false">
-    <serverData>
-      <paths name="aesm1p@192.168.84.141:22">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/aesm1p/project" local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </paths>
-    </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
-  </component>
+  <component name="PublishConfigData" serverName="aesm1p@192.168.84.141:22" remoteFilesAllowedToDisappearOnAutoupload="false" />
 </project>

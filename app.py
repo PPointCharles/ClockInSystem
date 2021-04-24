@@ -75,7 +75,8 @@ def status():
 @app.route('/delete/<record_id>')
 def delete(record_id):
     ctl.deleteRecordById(record_id)
-    return render_template('delete.html')
+    flash("You have deleted successfully!")
+    return redirect(url_for('status'))
 
 
 @app.errorhandler(400)
