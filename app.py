@@ -13,7 +13,7 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-    items = ctl.getStatusByYM(2021, 4)
+    items = ctl.getStatusByYM(datetime.date.today().year, datetime.date.today().month)
     color = ['bg-info', 'bg-success', 'bg-warning', 'bg-danger']
     img = ['ion-bag', 'ion-stats-bars', 'ion-person-add', 'ion-pie-graph']
     for i in range(4):
